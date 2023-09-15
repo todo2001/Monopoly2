@@ -144,7 +144,7 @@ canvasEdifici.style.top = 0;
 canvasEdifici.style.left = 0;
 canvasEdifici.style.border = '2px solid black';
 canvasCont.appendChild(canvasEdifici);
-var context = canvasEdifici.getContext('2d')
+var contextEdifici = canvasEdifici.getContext('2d')
 
 function aggiornaEdifici() {
 
@@ -153,9 +153,9 @@ function aggiornaEdifici() {
 
       if (territori.gruppo === gruppo) {
         var valoreVecchio = territori.numeroEdifici;
+     
         // Ottieni l'elemento select tramite il suo name
         var selectElement = document.getElementById(territori.numero);
-        console.log(territori.numero);
         // Ottieni il valore selezionato
         var valoreSelezionato = selectElement.value;
         if (valoreVecchio != valoreSelezionato) {
@@ -169,57 +169,51 @@ function aggiornaEdifici() {
               var imgHotel = new Image();
               imgHotel.src = 'img/Hotel.png';
               imgHotel.onload = function () {
-                context.drawImage(imgHotel, 691, 742, 13, 16);
+                contextEdifici.clearRect(675, 742, 70, 40);
+                contextEdifici.drawImage(imgHotel, territori.x + 5, 742, 13, 16);
 
               }
             }
             if (valoreSelezionato == 4) {
-                var img = new Image();
-                img.src = 'img/Casa4.png';
-                img.onload = function () {
-                  // Disegna l'immagine alle coordinate (100, 100)
-                  context.drawImage(img, 675, 742, 13, 16);
-                }
+              var img = new Image();
+              img.src = 'img/Casa4.png';
+              img.onload = function () {
+                contextEdifici.clearRect(675, 742, 70, 40);
+                contextEdifici.drawImage(img, territori.x + 5, 742, 64, 16);
+              }
             }
-                        if (valoreSelezionato == 4) {
-                var img = new Image();
-                img.src = 'img/Casa4.png';
-                img.onload = function () {
-                  // Disegna l'immagine alle coordinate (100, 100)
-                  context.drawImage(img, 675, 742, 64, 16);
-                }
+            if (valoreSelezionato == 3) {
+              var img = new Image();
+              img.src = 'img/Casa3.png';
+              img.onload = function () {
+                contextEdifici.clearRect(675, 742, 70, 40);
+                contextEdifici.drawImage(img, territori.x + 5, 742, 47, 16);
+              }
             }
-                        if (valoreSelezionato == 3) {
-                var img = new Image();
-                img.src = 'img/Casa3.png';
-                img.onload = function () {
-                  // Disegna l'immagine alle coordinate (100, 100)
-                  context.drawImage(img, 675, 742, 47, 16);
-                }
+            if (valoreSelezionato == 2) {
+              var img = new Image();
+              img.src = 'img/Casa2.png';
+              img.onload = function () {
+                contextEdifici.clearRect(675, 742, 70, 40);
+                contextEdifici.drawImage(img, territori.x + 5, 742, 30, 16);
+              }
             }
-                        if (valoreSelezionato == 2) {
-                var img = new Image();
-                img.src = 'img/Casa2.png';
-                img.onload = function () {
-                  // Disegna l'immagine alle coordinate (100, 100)
-                  context.drawImage(img, 675, 742, 30, 16);
-                }
-            }
-                        if (valoreSelezionato == 0) {
-                          context.clearRect(675, 742, 70, 40);
-                }
-                        if (valoreSelezionato == 1) {
-                var img = new Image();
-                img.src = 'img/Casa.png';
-                img.onload = function () {
-                  // Disegna l'immagine alle coordinate (100, 100)
-                  context.drawImage(img, 675, 742, 13, 16);
-                }
-            }
-          }s
-          if(valoreVecchio > valoreSelezionato){
-            var valore = valoreVecchio - valoreSelezionato;
 
+            if (valoreSelezionato == 1) {
+              var img = new Image();
+              img.src = 'img/Casa.png';
+              img.onload = function () {
+                
+                contextEdifici.clearRect(675, 742, 70, 40);
+                contextEdifici.drawImage(img, territori.x + 5, 742, 13, 16);
+              }
+            }
+          } s
+          if (valoreVecchio > valoreSelezionato) {
+            var valore = valoreVecchio - valoreSelezionato;
+            if (valoreSelezionato == 0) {
+              contextEdifici.clearRect(territori.x + 5, 742, 70, 40);
+            }
           }
         }
       }
