@@ -1,0 +1,94 @@
+{
+    "probabilità": [
+      {
+        "numero": 0,
+        "tipo": "uscire",
+        "link": "http://localhost:3000/img/Probabilita/Probabilita1.png"
+      },
+      {
+        "numero": 1,
+        "tipo": "ritirare",
+        "link": "http://localhost:3000/img/Probabilita/Probabilita2.png",
+        "caratteristica": 500
+      },
+      {
+        "numero": 2,
+        "tipo": "ritirare",
+        "link": "http://localhost:3000/img/Probabilita/Probabilita3.png",
+        "caratteristica": 250
+      },
+      {
+        "numero": 3,
+        "tipo": "ritirare",
+        "link": "http://localhost:3000/img/Probabilita/Probabilita4.png",
+        "caratteristica": 125
+      },
+      {
+        "numero": 4,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita5.png",
+        "tipo": "ritirare",
+        "caratteristica": 25
+      },
+      {
+        "numero": 5,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita6.png",
+        "tipo": "andareVicoloCorto",
+        "caratteristica": 1,
+        "caratteristica2": ""
+      },
+      {
+        "numero": 6,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita7.png",
+        "caratteristica": 250,
+        "tipo": "ritirare"
+      },
+      {
+        "numero": 7,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita8.png",
+        "caratteristica": 50,
+        "tipo": "ritirare"
+      },
+      {
+        "numero": 8,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita9.png",
+        "tipo": "compleanno",
+        "caratteristica": 25
+      },
+      {
+        "numero": 9,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita10.png",
+        "tipo": "pagare",
+        "caratteristica": 250
+      },
+      {
+        "numero": 10,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita11.png",
+        "tipo": "ritirare",
+        "caratteristica": 60
+      },
+      {
+        "numero": 11,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita12.png",
+        "tipo": "andareVia",
+        "caratteristica": 0
+      },
+      {
+        "numero": 12,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita13.png",
+        "tipo": "prigione",
+        "caratteristica": 10
+      },
+      {
+        "numero": 13,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita14.png",
+        "tipo": "25/imprevisto",
+        "caratteristica": 25
+      },
+      {
+        "numero": 14,
+        "link": "http://localhost:3000/img/Probabilita/Probabilita15.png",
+        "tipo": "pagare",
+        "caratteristica": 125
+      }
+    ]
+  }

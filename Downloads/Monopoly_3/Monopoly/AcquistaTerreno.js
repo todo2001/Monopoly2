@@ -21,7 +21,7 @@ function acquistaterreno(posizione, numerogiocatore, schede, giocatore) {
     ctx.fillStyle = giocatori[numerogiocatore].colore;
     ctx.fillRect(schede[posizione].x, schede[posizione].y, 5, 70);
   }
-  giocatore.territori.push({ numero: schede[posizione].posizione, StatoIpoteca: false,x:schede[posizione].x, y:schede[posizione].y, gruppo: schede[posizione].gruppo, numeroEdifici:0});
+  giocatore.territori.push({ numero: schede[posizione].posizione, StatoIpoteca: false,x:schede[posizione].x, y:schede[posizione].y, gruppo: schede[posizione].gruppo, numeroEdifici:0, asse:schede[posizione].asse});
   info();
   visulizzaIpoteca(numerogiocatore);
   return schede;

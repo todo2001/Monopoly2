@@ -418,8 +418,9 @@ function scambio(turnoGiocatore) {
         var nEdifici = giocatori[turnoGiocatore].territori[indice].numeroEdifici
         var x = giocatori[turnoGiocatore].territori[indice].x;
         var y = giocatori[turnoGiocatore].territori[indice].y;
+        var asse = giocatori[turnoGiocatore].territori[indice].asse;
         giocatori[turnoGiocatore].territori.splice(indice, 1);
-        giocatori[giocatoreID].territori.push({ numero: territorio, StatoIpoteca: ipoteca,x: x, y:y, gruppo: gruppo, numeroEdifici: nEdifici});
+        giocatori[giocatoreID].territori.push({ numero: territorio, StatoIpoteca: ipoteca,x: x, y:y, gruppo: gruppo, numeroEdifici: nEdifici, asse: asse});
         schede[territorio].proprietario = giocatoreID;
 
         if (schede[territorio].asse == "1") {
@@ -450,8 +451,9 @@ function scambio(turnoGiocatore) {
         var nEdifici = giocatori[giocatoreID].territori[indice].numeroEdifici;
         var x = giocatori[giocatoreID].territori[indice].x;
         var y = giocatori[giocatoreID].territori[indice].y;
+        var asse = giocatori[giocatoreID].territori[indice].asse;
         giocatori[giocatoreID].territori.splice(indice, 1);
-        giocatori[turnoGiocatore].territori.push({ numero: territorio, StatoIpoteca: ipoteca,x: x, y:y, gruppo: gruppo, numeroEdifici: nEdifici });
+        giocatori[turnoGiocatore].territori.push({ numero: territorio, StatoIpoteca: ipoteca,x: x, y:y, gruppo: gruppo, numeroEdifici: nEdifici,asse:asse });
         schede[territorio].proprietario = turnoGiocatore;
 
         if (schede[territorio].asse == "1") {
