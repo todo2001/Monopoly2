@@ -1,0 +1,5 @@
+1. movimento pedina
+2.turno
+3. tavolo grafico
+4.Grafica tessere
+5.Form Inserimento Dati

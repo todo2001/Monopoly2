@@ -1,0 +1,104 @@
+{
+    "imprevisti": [
+      {
+        "numero": 0,
+        "tipo": "pagare",
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto1.png",
+        "caratteristica": 50
+      },
+      {
+        "numero": 1,
+        "tipo": "ritirare",
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto2.png",
+        "caratteristica": 375
+      },
+      {
+        "numero": 2,
+        "tipo": "andare",
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto3.png",
+        "caratteristica": 40
+      },
+      {
+        "numero": 3,
+        "tipo": "pagare",
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto4.png",
+        "caratteristica": 100,
+        "caratteristica2": 250
+      },
+      {
+        "numero": 4,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto5.png",
+        "tipo": "andare",
+        "caratteristica": 39
+      },
+      {
+        "numero": 5,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto6.png",
+        "tipo": "andare",
+        "caratteristica": 25,
+        "caratteristica2": 500
+      },
+      {
+        "numero": 6,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto7.png",
+        "caratteristica": 24,
+        "tipo": "andare",
+        "caratteristica2": 500
+      },
+      {
+        "numero": 7,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto8.png",
+        "caratteristica": 11,
+        "tipo": "andare",
+        "caratteristica2": 500
+      },
+      {
+        "numero": 8,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto9.png",
+        "tipo": "prigione",
+        "caratteristica": 10
+      },
+      {
+        "numero": 9,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto10.png",
+        "tipo": "andare3",
+        "caratteristica": -3
+      },
+      {
+        "numero": 10,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto11.png",
+        "tipo": "pagare",
+        "caratteristica": 60,
+        "caratteristica2": 250
+      },
+      {
+        "numero": 11,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto12.png",
+        "tipo": "ritirare",
+        "caratteristica": 125
+      },
+      {
+        "numero": 12,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto13.png",
+        "tipo": "pagare",
+        "caratteristica": 40
+      },
+      {
+        "numero": 13,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto14.png",
+        "tipo": "ritirare",
+        "caratteristica": 250
+      },
+      {
+        "numero": 14,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto15.png",
+        "tipo": "pagare",
+        "caratteristica": 375
+      },
+      {
+        "numero": 15,
+        "link": "http://localhost:3000/img/Imprevisti/Imprevisto16.png",
+        "tipo": "uscire"
+      }
+    ]
+  }

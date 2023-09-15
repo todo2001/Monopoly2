@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" href="css/foglio.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+   <form>
+    <label>Inserisci il numero di giocatori:</label>
+    <input type="number" id="numPlayers" name="numPlayers" min="2" required>
+    <div id="playersContainer">
+
+    </div>
+    <button type ="submit" onclick="inviaForm()">Invia</button>
+   </form>
+   <script>
+         function inviaForm() {
+    event.preventDefault();
+
+    let numPlayersInput = document.getElementById('numPlayers');
+    let playersContainer = document.getElementById('playersContainer');
+    let players = [];
+
+    playersContainer.innerHTML = '';
+
+    let numPlayers = parseInt(numPlayersInput.value);
+
+    for (let i = 0; i < numPlayers; i++) {
+      let playerDiv = document.createElement('div');
+      playerDiv.innerHTML = `
+        <h4>Giocatore ${i + 1}</h4>
+        <label>Nome:</label>
+        <input type="text" name="name${i}" required>
+        <label>Colore:</label>
+        <input type="text" name="color${i}" required>
+      `;
+      playersContainer.appendChild(playerDiv);
+    }
+  }
+   </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <script src="Pedine.js"></script>
+        <script src="Tabellone.js"></script>
+        <script src="funzioni.js"></script>
+        <script src="imprevisti-probabilità.js"></script>
+        <script src="ipoteca.js"></script>
+        <script src="AcquistaTerreno.js"></script>
+        <script src="affitto.js"></script>
+        <script src="prigione.js"></script>
+        <script>
+            let numPlayersInput = document.getElemtentByid()
+        </script>
+</body>
+</html>

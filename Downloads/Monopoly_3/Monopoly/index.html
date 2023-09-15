@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tabellone di Monopoly</title>
+    <link rel="stylesheet" href="css/foglio.css" type="text/css">
+</head>
+
+<body>
+    <div id="canvas-container" style="position:relative; width:850px;height:850px"> 
+        <canvas id="board" width="850" height="850"style="position: absolute; top: 0; left: 0; background-color: #D7E5CE;  "></canvas>
+        <canvas id="pedina1" width="850" height="850" style="position: absolute; top: 0; left: 0;"></canvas>
+        <div id="infoBox"></div>
+        <button id="lanciadadibottone" >Rolldice</button>
+        
+    </div>
+
+    <div id="popup-container">
+        <div id="popup-content">
+            <button id="compra">Compra</button>
+            <button id="asta">Asta</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        var schede = [];
+        fetch('http://localhost:3000/Data_monopoly.json')
+            .then(response => response.json())
+            .then(data => {
+                schede = data.schede;
+                console.log(schede);
+                tabellone(schede);
+            })
+            .catch(error => {
+                console.error('Errore durante il recupero dei dati JSON:', error);
+            });
+
+
+        var canvas = document.getElementById("board");
+        var ctx = canvas.getContext("2d");
+        var pedina1 = document.getElementById('pedina1');
+        var pedinactx = pedina1.getContext('2d');
+
+        function tabellone(schede) {
+            schede.forEach(schede => {
+                ctx.lineWidth = 3;
+                ctx.fillStyle = "#D7E5CE";
+                ctx.fillRect(schede.x, schede.y, schede.width, schede.height);
+                ctx.strokeStyle = 'black';
+                ctx.strokeRect(schede.x, schede.y, schede.width, schede.height);
+
+
+                if (schede.tipo == "Proprietà") {
+                    if (schede.asse == "1") {
+                        const rectX = schede.x;
+                        const rectY = 90;
+                        ctx.fillStyle = schede.colore;
+                        ctx.fillRect(rectX, rectY, 70, 20);
+                        ctx.strokeRect(rectX, rectY, 70, 20);
+                    }
+
+                    if (schede.asse == '2') {
+                        const rectX = schede.x;
+                        const rectY = schede.y;
+                        ctx.fillStyle = schede.colore;
+                        ctx.fillRect(rectX, rectY, 20, 70);
+                        ctx.strokeRect(rectX, rectY, 20, 70);
+                    }
+
+                    if (schede.asse == '3') {
+                        const rectX = schede.x;
+                        const rectY = 740;
+                        ctx.fillStyle = schede.colore;
+                        ctx.fillRect(rectX, rectY, 70, 20);
+                        ctx.strokeRect(rectX, rectY, 70, 20);
+                    }
+
+                    if (schede.asse == '4') {
+                        const rectX = 90;
+                        const rectY = schede.y;
+                        ctx.fillStyle = schede.colore;
+                        ctx.fillRect(rectX, rectY, 20, 70);
+                        ctx.strokeRect(rectX, rectY, 20, 70);
+                    }
+                }
+                    const maxWidth = schede.width - 20; // Larghezza massima disponibile per il testo
+                    let word = schede.nome.split(' '); // Suddivide il testo in parole
+                    const lineHeight = 16; // Altezza della singola riga di testo
+                    let x = schede.x + 10; // Posizione x iniziale
+                    let y = schede.y + 50;
+                    // Itera su ogni parola
+                    word.forEach(word => {
+                        const textWidth = ctx.measureText(word).width; // Calcola la larghezza della parola
+
+                        // Se la larghezza della parola supera la larghezza disponibile, vado a capo
+                        if (x + textWidth > schede.x + schede.width) {
+                            x = schede.x + 10; // Torno all'inizio della riga
+                            y += lineHeight; // Passo alla riga successiva
+                        }
+
+
+                        ctx.fillStyle = 'black';
+                        ctx.font = '12px Arial';
+                        ctx.fillText(word, x, y);
+
+                        // Aggiorna la posizione x per la prossima parola
+                        x += textWidth + 5; // Aggiungo uno spazio tra le parole
+                    });
+                
+                if (schede.tipologia == "Stazione") {
+                    var image = new Image();
+                    image.src = "img/treno.png";
+                    image.onload = function () {
+                        ctx.drawImage(image, schede.x + 20, schede.y + 70, 61, 49);
+                        ctx.fillStyle = 'black';
+                        ctx.font = '12px Arial';
+                        ctx.fillText(schede.nome, schede.x + 10, schede.y + 20);
+                    };
+                }
+
+
+            });
+        };
+        
+        
+        posizioneX2 = 780;
+        PosizioneY2 = 780;
+        Posizione2 = 0;
+        posizioneX = 790;
+        posizioneY = 790;
+        posizione = 0;
+        drawPlayer(posizioneX, posizioneY);
+        function drawPlayer(posizioneX, posizioneY) {
+            pedinactx.fillStyle = "red";
+            pedinactx.fillRect(posizioneX, posizioneY, 15, 15);
+        }
+
+        function spostaPedina(risultatoDadi) {
+
+            posizionevecchiaX = posizioneX;
+            posizionevecchiaY = posizioneY;
+            if (posizione + risultatoDadi > 39) {
+                do {
+                    posizione++;
+                    risultatoDadi--;
+                } while (posizione <= 39);
+                posizione = 0 + risultatoDadi;
+            } else
+                posizione = posizione + risultatoDadi;
+            schede.forEach(schede => {
+                if (schede.posizione == posizione) {
+                    posizioneX = schede.x + 20;
+                    posizioneY = schede.y + 20;
+
+                }
+            });
+            pedinactx.clearRect(posizionevecchiaX, posizionevecchiaY, 15, 15);
+            pedinactx.fillStyle = "red";
+            pedinactx.fillRect(posizioneX, posizioneY, 15, 15);
+            if(schede[posizione].tipo=="Proprietà"||schede[posizione].tipo=="Stazione"||schede[posizione].tipo=="Società"){
+            apripopup(posizione);}
+        }
+
+        function lancioDadi() {
+            var dado1 = Math.floor(Math.random() * 6) + 1;
+            var dado2 = Math.floor(Math.random() * 6) + 1;
+            var risultato = dado1 + dado2;
+            var infoBox = '<div class="risultatoDado">Il risultato del dado è: ' + risultato + '</div>';
+
+            document.getElementById("infoBox").insertAdjacentHTML('afterbegin',infoBox); // Aggiunge il div ai risultati
+            spostaPedina(risultato);
+        }
+
+
+        var dadiBottone = document.getElementById("lanciadadibottone");
+        dadiBottone.addEventListener("click", lancioDadi);
+
+
+        function apripopup(posizione) {   
+            var popupContainer = document.getElementById("popup-container");
+            popupContainer.style.display = "block";    
+            const imageLink = schede[posizione].link;
+            const imageElement = document.createElement('img');
+            imageElement.src = imageLink;
+            imageElement.width = 328;
+            imageElement.height = 423;
+            const divElement = document.getElementById('popup-content');
+            divElement.appendChild(imageElement);
+            var popupCloseButton = document.getElementById("compra");
+            popupCloseButton.addEventListener("click", function () {
+                popupContainer.style.display = "none";
+                divElement.innerHTML = "<button id='compra'>Compra</button>";
+            });
+        }
+
+    </script>
+</body>
+
+</html>
